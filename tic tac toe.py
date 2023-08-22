@@ -12,6 +12,8 @@ pygame.display.set_caption("TicTacToe")
 
 line_width = 6
 markers = []
+clicked = False
+pos = []
 
 def draw_grid():
     bg = (255, 255, 200)
@@ -36,6 +38,13 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        if event.type == pygame.MOUSEBUTTONDOWN and clicked == False:
+            clicked = True
+        if event.type == pygame.MOUSEBUTTONUP and clicked == True:
+            clicked = False
+            pos = pygame.mouse.get_pos()
+            cell_x = pos[0]
+            cell_y = pos[1]
 
     pygame.display.update()
 
