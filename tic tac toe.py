@@ -14,6 +14,10 @@ line_width = 6
 markers = []
 clicked = False
 pos = []
+player = 1
+
+green = (0, 255, 0)
+red = (255, 0, 0)
 
 def draw_grid():
     bg = (255, 255, 200)
@@ -27,7 +31,12 @@ for x in range(3):
     row = [0] * 3
     markers.append(row)
 
-print(markers)
+def draw_markers():
+    x_pos = 0
+    for x in markers:
+        y_pos = 0
+        for y in x:
+            if y == 1:
 
 run = True
 while run:
@@ -45,6 +54,9 @@ while run:
             pos = pygame.mouse.get_pos()
             cell_x = pos[0]
             cell_y = pos[1]
+            if markers[cell_x // 100][cell_y // 100] == 0:
+                markers[cell_x // 100][cell_y // 100] = player
+                player *= -1
 
     pygame.display.update()
 
