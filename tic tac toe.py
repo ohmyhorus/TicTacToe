@@ -1,6 +1,6 @@
 from pdb import line_prefix
 import pygame
-from pygame.locals import # *
+from pygame.locals import #*
 
 pygame.init()
 
@@ -37,6 +37,10 @@ def draw_markers():
         y_pos = 0
         for y in x:
             if y == 1:
+                pygame.draw.line(screen, green, (x_pos * 100 + 15, y_pos * 100 + 15), (x_pos * 100 + 85, y_pos * 100 + 85), line_width)
+                pygame.draw.line(screen, green, (x_pos * 100 + 15, y_pos * 100 + 85), (x_pos * 100 + 85, y_pos * 100 + 15), line_width)
+            if y == -1:
+                pygame.draw.circle(screen,red, (x_pos * 100 + 50, y_pos * 100 + 50), 38, line_width)
 
 run = True
 while run:
